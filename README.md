@@ -14,7 +14,7 @@ First I need to install the prerequisites so I can get this project up and runni
 
 I'm going to use **PostgreSQL** because it is highly recommended and applicable to real-world jobs. I go to https://www.postgresql.org/download/windows/, select **Download the installer**, and download the latest (**18.1**) version for **Windows x86-64**. I run the installation file as administrator. I use the default setups and set a password when prompted **for the database superuser**, leave the default **Port** number, select **fi-FI** as the **Locale** (tells your computer or program how to handle language-specific stuff), and start the installation. I'm going to be using **ChatGPT** as a tutor during this project.
 
-After the installation is finished, I run **SQL Shell (psql)** program and press **Enter** for all of the following prompts to use the default choices:
+After the installation is finished, I run **SQL Shell (psql)** program and press **Enter** for all the following prompts to use the default choices:
 
 ```
 Server [localhost]:
@@ -50,3 +50,5 @@ Type "help" for help.
 
 postgres=#
 ```
+
+Now I'm succesfully connected to **PostgreSQL**. The warning message 
