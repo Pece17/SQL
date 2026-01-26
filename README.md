@@ -12,4 +12,41 @@ A project for learning the basics of **Structured Query Language**. My purpose i
 
 First I need to install the prerequisites so I can get this project up and running. I just bought a second-hand **Lenovo Legion T5** PC that is running **Microsoft Windows 11 Home**, so performance shouldn't be an issue.
 
-I'm going to use **PostgreSQL** because it is highly recommended and applicable to real-world jobs. I go to https://www.postgresql.org/download/windows/, select **Download the installer**, and download the latest (**18.1**) version for **Windows x86-64**. I run the installation file as administrator. I use the default setups and set a password when prompted **for the database superuser**, leave the default **Port** number, select **fi-FI** as the **Locale** (tells your computer or program how to handle language-specific stuff), and start the installation.
+I'm going to use **PostgreSQL** because it is highly recommended and applicable to real-world jobs. I go to https://www.postgresql.org/download/windows/, select **Download the installer**, and download the latest (**18.1**) version for **Windows x86-64**. I run the installation file as administrator. I use the default setups and set a password when prompted **for the database superuser**, leave the default **Port** number, select **fi-FI** as the **Locale** (tells your computer or program how to handle language-specific stuff), and start the installation. I'm going to be using **ChatGPT** as a tutor during this project.
+
+After the installation is finished, I run **SQL Shell (psql)** program and press **Enter** for all of the following prompts to use the default choices:
+
+```
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+```
+
+After this I'm asked to enter the password I chose during the installation:
+
+```
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+Password for user postgres:
+```
+
+After entering my password I get the following output:
+
+```
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]:
+Password for user postgres:
+
+psql (18.1)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=#
+```
