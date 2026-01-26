@@ -63,8 +63,18 @@ postgres=# SELECT version();
 (1 row)
 ```
 
-Next let's create a new database called ```testdb```, so that we avoid working in the default ```postgres``` database. The ```CREATE DATABASE``` statement is used to create a new **SQL** database:
+Next let's create a new database called ```testdb```, so that we avoid working in the default ```postgres``` database. The ```CREATE DATABASE``` statement is used to create a new **SQL** database. **Semicolons** (**;**) are also used after statements in **SQL**:
 
 ```
+postgres=# CREATE DATABASE testdb;
+CREATE DATABASE
+postgres=#
+```
 
+Now we can connect to the newly created database using the ```\c``` command:
+
+```
+postgres=# \c testdb
+You are now connected to database "testdb" as user "postgres".
+testdb=#
 ```
