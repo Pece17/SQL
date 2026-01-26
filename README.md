@@ -51,4 +51,4 @@ Type "help" for help.
 postgres=#
 ```
 
-Now I'm succesfully connected to **PostgreSQL**. The warning message 
+Now I'm succesfully connected to **PostgreSQL 18.1**. The warning message just means that this terminal uses a different character set than my computer, which supports e.g. Finnish characters. This probably won't be an issue as long as I don't use special characters in the database.
