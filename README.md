@@ -12,7 +12,7 @@ A project for learning the basics of **Structured Query Language**. My purpose i
 
 First I need to install the prerequisites so I can get this project up and running. I just bought a second-hand **Lenovo Legion T5** PC that is running **Microsoft Windows 11 Home**, so performance shouldn't be an issue.
 
-I'm going to use **PostgreSQL** because it is highly recommended and applicable to real-world jobs. I go to https://www.postgresql.org/download/windows/, select **Download the installer**, and download the latest (**18.1**) version for **Windows x86-64**. I run the installation file as administrator. I use the default setups and set a password when prompted **for the database superuser**, leave the default **Port** number, select **fi-FI** as the **Locale** (tells your computer or program how to handle language-specific stuff), and start the installation. I'm going to be using **ChatGPT** as a tutor during this project.
+I'm going to use **PostgreSQL** because it is highly recommended and applicable to real-world jobs. I go to https://www.postgresql.org/download/windows/, select **Download the installer**, and download the latest (**18.1**) version for **Windows x86-64**. I run the installation file as administrator. I use the default setups and set a password when prompted **for the database superuser**, leave the default **Port** number, select **fi-FI** as the **Locale** (tells your computer or program how to handle language-specific stuff), and start the installation. I'm going to be using **ChatGPT** as a tutor during this project and also other learning resources, like [W3Schools](https://www.w3schools.com/sql/).
 
 After the installation is finished, I run **SQL Shell (psql)** program and press **Enter** for all the following prompts to use the default choices:
 
@@ -52,3 +52,19 @@ postgres=#
 ```
 
 Now I'm succesfully connected to **PostgreSQL 18.1**. The warning message just means that this terminal uses a different character set than my computer, which supports e.g. Finnish characters. This probably won't be an issue as long as I don't use special characters in the database.
+
+Now I can test if the database works correctly. The ```SELECT``` statement is used to select data from a database, so I enter the following command to check the database version:
+
+```
+postgres=# SELECT version();
+                                 version
+-------------------------------------------------------------------------
+ PostgreSQL 18.1 on x86_64-windows, compiled by msvc-19.44.35221, 64-bit
+(1 row)
+```
+
+Next let's create a new database called ```testdb```, so that we avoid working in the default ```postgres``` database. The ```CREATE DATABASE``` statement is used to create a new **SQL** database:
+
+```
+
+```
