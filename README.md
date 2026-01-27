@@ -78,3 +78,22 @@ postgres=# \c testdb
 You are now connected to database "testdb" as user "postgres".
 testdb=#
 ```
+
+Let's create our first table in the ```testdb``` database with the ```CREATE TABLE``` statement:
+
+- ```cars``` is the name of the table.
+- ```id``` is the **column** name for the unique identifier for each car, ```SERIAL``` automatically generates numbers for new rows, and ```PRIMARY KEY``` ensures this column is unique and cannot be empty (```NULL```).
+- ```brand``` is the **column** name for the brand of the car (Volvo, Toyota, etc.), ```TEXT``` is the data type for any length of string/text, and ```NOT NULL``` means this field must have a value and you cannot insert a **row** without a brand.
+- ```model``` is the **column** name for the model of the car (V70, Celica, etc.), and ```TEXT``` and ```NOT NULL``` work similarly as in the previous **row**.
+- ```year``` is the **column** name for the manufacturing year of the car and ```INT``` is the data type for **integers** (whole numbers).
+- Each **column** definition (not **row**) is separated by a **comma** (**,**).
+
+```
+CREATE TABLE cars (
+    id SERIAL PRIMARY KEY,           -- Unique ID for each car
+    brand TEXT NOT NULL,             -- Car brand, e.g., Toyota, Volvo
+    model TEXT NOT NULL,             -- Car model, e.g., Corolla, V60
+    year INT,                        -- Year of manufacture
+    created_at TIMESTAMP DEFAULT now() -- Auto timestamp of row creation
+);
+```
