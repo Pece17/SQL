@@ -158,3 +158,37 @@ We can use a **SELECT** statement to read data from a table. ```SELECT``` tells 
 SELECT * FROM cars;
 ```
 
+I get the following output:
+
+```
+testdb=# SELECT * FROM cars;
+ id | brand  |  model   | year |         created_at
+----+--------+----------+------+----------------------------
+  1 | Lancia | Delta S4 | 1986 | 2026-01-27 17:59:52.763842
+  2 | Volvo  | V70      | 1997 | 2026-01-27 17:59:52.763842
+  3 | Toyota | Celica   | 1994 | 2026-01-27 17:59:52.763842
+(3 rows)
+```
+
+The statement worked as intended. If we want to, we can also select specific columns like this: ```SELECT brand, model FROM cars;```:
+
+```
+testdb=# SELECT brand, model FROM cars;
+ brand  |  model
+--------+----------
+ Lancia | Delta S4
+ Volvo  | V70
+ Toyota | Celica
+(3 rows)
+```
+
+Or we can, for example, only show cars made before **1995** like this: ```SELECT * FROM cars WHERE year < 1995;```. ```WHERE``` = only return **rows** that match this condition, ```year``` = the column name in my ```cars``` table, ```<``` = less than, and ```1995``` = the value to compare against:
+
+```
+testdb=# SELECT * FROM cars WHERE year < 1995;
+ id | brand  |  model   | year |         created_at
+----+--------+----------+------+----------------------------
+  1 | Lancia | Delta S4 | 1986 | 2026-01-27 17:59:52.763842
+  3 | Toyota | Celica   | 1994 | 2026-01-27 17:59:52.763842
+(2 rows)
+```
