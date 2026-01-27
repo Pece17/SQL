@@ -152,7 +152,7 @@ testdb=#
 
 Data insertion was successful based on ```INSERT 0 3``` message. ```INSERT``` = the command worked, ```0``` = number of rows affected for **special columns** like **sequences** (ignore), and ```3``` = 3 rows were successfully added.
 
-We can use a **SELECT** statement to read data from a table. ```SELECT``` tells **SQL** which columns you want to see, ```*``` = all columns, ```FROM cars``` = from the ```cars``` table, and the **semicolon** ```;``` ends the **SQL** statement as per usual.
+We can use a **SELECT** statement to read data from a table. ```SELECT``` tells **SQL** which columns you want to see, **asterisk** ```*``` = all columns, ```FROM cars``` = from the ```cars``` table, and the **semicolon** ```;``` ends the **SQL** statement as per usual.
 
 ```
 SELECT * FROM cars;
