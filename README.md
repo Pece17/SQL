@@ -129,8 +129,8 @@ testdb=# \dt
 
 Everything looks in order, so now we can **insert** some cars into the ```cars``` table:
 
-- ```INSERT``` tells the database that data will be inserted into a table, ```INTO``` specifies which table (```cars```) you want to insert the row(s) into, ```(brand, model, year)``` tells **PostgreSQL** which columns you are providing data for in the new row, and ```VALUES``` introduces the actual data you want to insert.
-- **Single quotes** (**''**) are used for the values of ```brand``` and ```model``` because they are text/strings and no quotes are used for ```year``` because they are **numbers** (**integer**, **serial**, **float**, etc.).
+- ```INSERT``` tells the database that data will be inserted into a table, ```INTO``` specifies which table (```cars``` in this case) you want to insert the row(s) into, ```(brand, model, year)``` tells **PostgreSQL** which columns you are providing data for in the new row, and ```VALUES``` introduces the actual data you want to insert.
+- **Single quotes** (**''**) are used for the values of ```brand``` and ```model``` because they are **text**/**strings**, and no quotes are used for ```year``` because they are **numbers** (**integer**, **serial**, **float**, etc.).
 
 ```
 INSERT INTO cars (brand, model, year) VALUES
@@ -138,3 +138,16 @@ INSERT INTO cars (brand, model, year) VALUES
 ('Volvo', 'V70', 1997),
 ('Toyota', 'Celica', 1994);
 ```
+
+The output looks as follows:
+
+```
+testdb=# INSERT INTO cars (brand, model, year) VALUES
+testdb-# ('Lancia', 'Delta S4', 1986),
+testdb-# ('Volvo', 'V70', 1997),
+testdb-# ('Toyota', 'Celica', 1994);
+INSERT 0 3
+testdb=#
+```
+
+Data insertion was successful based on ```INSERT 0 3``` message. ```INSERT``` = the command worked, ```0``` = number of rows affected for **special columns** like **sequences** (ignore), and ```3``` = 3 rows were successfully added.
