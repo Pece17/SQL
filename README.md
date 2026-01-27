@@ -192,3 +192,15 @@ testdb=# SELECT * FROM cars WHERE year < 1995;
   3 | Toyota | Celica   | 1994 | 2026-01-27 17:59:52.763842
 (2 rows)
 ```
+
+With ```SELECT * FROM cars ORDER BY year DESC;``` we can sort cars from newest to oldest. ```ORDER BY``` tells **SQL** to sort the result rows (but it only affects how results are displayed, not how they are stored), ```year``` = the **column** used for sorting, and ```DESC``` = descending order meaning largest value first and smallest value last (the opposite of **DESC** is **ASC** for **ascending** order):
+
+```
+testdb=# SELECT * FROM cars ORDER BY year DESC;
+ id | brand  |  model   | year |         created_at
+----+--------+----------+------+----------------------------
+  2 | Volvo  | V70      | 1997 | 2026-01-27 17:59:52.763842
+  3 | Toyota | Celica   | 1994 | 2026-01-27 17:59:52.763842
+  1 | Lancia | Delta S4 | 1986 | 2026-01-27 17:59:52.763842
+(3 rows)
+```
