@@ -79,7 +79,7 @@ You are now connected to database "testdb" as user "postgres".
 testdb=#
 ```
 
-Let's create our first table in the ```testdb``` database with the ```CREATE TABLE``` statement:
+Let's create our first **table** in the ```testdb``` **database** with the ```CREATE TABLE``` **statement**:
 
 - ```cars``` is the name of the table.
 - ```id``` is the **column** name for the unique identifier for each car, ```SERIAL``` automatically generates numbers for new rows, and ```PRIMARY KEY``` ensures this column is unique and cannot be empty (```NULL```).
@@ -114,4 +114,27 @@ testdb(#     created_at TIMESTAMP DEFAULT now()
 testdb(# );
 CREATE TABLE
 testdb=#
+```
+
+We can use ```\dt``` command to list all tables in the current database/schema.
+
+```
+testdb=# \dt
+          List of tables
+ Schema | Name | Type  |  Owner
+--------+------+-------+----------
+ public | cars | table | postgres
+(1 row)
+```
+
+Everything looks in order, so now we can **insert** some cars into the ```cars``` table:
+
+- ```INSERT``` tells the database that data will be inserted into a table, ```INTO``` specifies which table (```cars```) you want to insert the row(s) into, ```(brand, model, year)``` tells **PostgreSQL** which columns you are providing data for in the new row, and ```VALUES``` introduces the actual data you want to insert.
+- **Single quotes** (**''**) are used for the values of ```brand``` and ```model``` because they are text/strings and no quotes are used for ```year``` because they are **numbers** (**integer**, **serial**, **float**, etc.).
+
+```
+INSERT INTO cars (brand, model, year) VALUES
+('Lancia', 'Delta S4', 1986),
+('Volvo', 'V70', 1997),
+('Toyota', 'Celica', 1994);
 ```
