@@ -82,7 +82,7 @@ testdb=#
 Let's create our first **table** in the ```testdb``` **database** with the ```CREATE TABLE``` **statement**:
 
 - ```cars``` is the name of the table.
-- ```id``` is the **column** name for the unique identifier for each car, ```SERIAL``` automatically generates numbers for new rows, and ```PRIMARY KEY``` ensures this column is unique and cannot be empty (```NULL```).
+- ```id``` is the **column** name for the unique identifier for each car, ```SERIAL``` automatically generates numbers for new rows (**PostgreSQL**-specific and automatically creates a sequence behind the scenes), and ```PRIMARY KEY``` ensures this column is unique and cannot be empty (```NULL```).
 - ```brand``` is the **column** name for the brand of the car (Volvo, Toyota, etc.), ```TEXT``` is the data type for any length of string/text, and ```NOT NULL``` means this field must have a value and you cannot insert a **row** without a brand.
 - ```model``` is the **column** name for the model of the car (V70, Celica, etc.), and ```TEXT``` and ```NOT NULL``` work similarly as in the previous **row**.
 - ```year``` is the **column** name for the manufacturing year of the car and ```INT``` is the data type for **integers** (whole numbers).
@@ -152,7 +152,7 @@ testdb=#
 
 Data insertion was successful based on ```INSERT 0 3``` message. ```INSERT``` = the command worked, ```0``` = number of rows affected for **special columns** like **sequences** (ignore), and ```3``` = 3 rows were successfully added.
 
-We can use a **SELECT** statement to read data from a table. ```SELECT``` tells **SQL** which columns you want to see, **asterisk** ```*``` = all columns, ```FROM cars``` = from the ```cars``` table, and the **semicolon** ```;``` ends the **SQL** statement as per usual.
+We can use a **SELECT** statement to read data from a table. ```SELECT``` tells **SQL** which columns you want to see, **asterisk** ```*``` = all columns, ```FROM cars``` = from the ```cars``` table, and the **semicolon** ```;``` ends the **SQL** statement as per usual. Though, in real projects, explicitly selecting columns is usually preferred.
 
 ```
 SELECT * FROM cars;
