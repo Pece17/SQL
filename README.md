@@ -63,7 +63,7 @@ postgres=# SELECT version();
 (1 row)
 ```
 
-Next let's create a new database called ```testdb```, so that we avoid working in the default ```postgres``` database. The ```CREATE DATABASE``` statement is used to create a new **SQL** database. **Semicolons** (**;**) are also used after statements in **SQL**:
+Next let's create a new database called ```testdb```, so that we avoid working in the default ```postgres``` database. The ```CREATE DATABASE``` **statement** is used to create a new **SQL** database. **Semicolons** (**;**) are also used after **statements** in **SQL**:
 
 ```
 postgres=# CREATE DATABASE testdb;
@@ -90,7 +90,7 @@ Let's create our first table in the ```testdb``` database with the ```CREATE TAB
 - Each **column** definition (not **row**) is separated by a **comma** (**,**).
 - The **column** definitions are indented inside the **parentheses** **()**.
 
-I use 
+I use **Notepad++** to create the **statement** because it's easier than trying to write straight to **SQL Shell (psql)**. 
 
 ```
 CREATE TABLE cars (
@@ -100,4 +100,18 @@ CREATE TABLE cars (
     year INT,
     created_at TIMESTAMP DEFAULT now()
 );
+```
+
+Here's how the **statement** looks in **SQL Shell (psql)**. ```CREATE TABLE``` message indicates that the **table** was created succesfully.
+
+```
+testdb=# CREATE TABLE cars (
+testdb(#     id SERIAL PRIMARY KEY,
+testdb(#     brand TEXT NOT NULL,
+testdb(#     model TEXT NOT NULL,
+testdb(#     year INT,
+testdb(#     created_at TIMESTAMP DEFAULT now()
+testdb(# );
+CREATE TABLE
+testdb=#
 ```
