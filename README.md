@@ -6,6 +6,7 @@ A project for learning the basics of **Structured Query Language**. My purpose i
 ## Table of Contents
 
 - [Software Installation and Setup](https://github.com/Pece17/SQL/blob/main/README.md#software-installation-and-setup)
+- [Creating a Movie Rating Database]()
 
 
 ## Software Installation and Setup
@@ -258,6 +259,10 @@ Press any key to continue . . .
 This concludes the installation, setup, and testing.
 
 
-## Placeholder Title
+## Creating a Movie Rating Database
 
-Loading...
+I'm an avid [IMDb](https://www.imdb.com/) user, and I usually rate every movie I see. I really enjoy using **IMDb**, but the only issue with it is that you can only rate movies with whole numbers (**7/10**, **8/10**, etc.) whereas I'd like to be able to use decimals (**7.5/10**, **8.5/10**, etc.). For this reason I think creating a database for my own movie ratings could be a fun and even useful idea. I believe that a good way to learn is to build something you actually find enjoyable and useful.
+
+These are my initial ideas for the database:
+
+- Loading...
