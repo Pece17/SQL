@@ -372,7 +372,7 @@ movie_database=# SELECT * FROM movie_ratings;
 (4 rows)
 ```
 
-Perfect, I even coincidentally inserted the ratings in descending order, even though there's a statement for it:
+Perfect! I even coincidentally inserted the ratings in a descending order, even though there's a statement for it:
 
 ```
 movie_database=# SELECT * FROM movie_ratings ORDER BY rating DESC;
@@ -385,3 +385,38 @@ movie_database=# SELECT * FROM movie_ratings ORDER BY rating DESC;
   4 | Ad Astra          | 2019 |    8.0 | 2026-01-28 21:35:27.981159
 (4 rows)
 ```
+
+I want to see what happens if I insert a movie with a rating that is not allowed:
+
+```
+movie_database=# INSERT INTO movie_ratings (title, year, rating) VALUES
+movie_database-# ('The Tender Bar', 2021, 7.2);
+ERROR:  new row for relation "movie_ratings" violates check constraint "movie_ratings_rating_check"
+DETAIL:  Failing row contains (6, The Tender Bar, 2021, 7.2, 2026-01-28 21:48:29.13976).
+```
+
+The fail check works as intended. Now let's insert with the correct rating:
+
+```
+movie_database=# INSERT INTO movie_ratings (title, year, rating) VALUES
+movie_database-# ('The Tender Bar', 2021, 7);
+INSERT 0 1
+movie_database=#
+```
+
+Let's see how the ```movie_ratings``` table looks now:
+
+```
+movie_database=# SELECT * FROM movie_ratings ORDER BY rating DESC;
+                           movie_database
+ id |       title       | year | rating |          rated_at
+----+-------------------+------+--------+----------------------------
+  1 | The Last Samurai  | 2003 |    9.5 | 2026-01-28 21:35:27.981159
+  2 | Heat              | 1995 |    9.0 | 2026-01-28 21:35:27.981159
+  3 | Good Will Hunting | 1997 |    8.5 | 2026-01-28 21:35:27.981159
+  4 | Ad Astra          | 2019 |    8.0 | 2026-01-28 21:35:27.981159
+  7 | The Tender Bar    | 2021 |    7.0 | 2026-01-28 21:48:40.23575
+(5 rows)
+```
+
+What is notable is that the ```id``` of ```The Tender Bar``` is ```7```, because I made **2** failed row insertions. In **PostgreSQL**, when you use ```INT GENERATED ALWAYS AS IDENTITY``` (or ```SERIAL```), the **ID counter** keeps increasing even if a row insertion fails. This behavior is completely standard.
