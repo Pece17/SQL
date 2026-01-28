@@ -279,4 +279,4 @@ This is the **schema** (defines the **columns**, their **data types**, and const
 | ```rating``` | ```NUMERIC(3,1)``` | Movie rating (allows decimals, e.g., 7.5) |
 | ```rated_at``` | ```TIMESTAMP``` | Automatic timestamp when the row is added |
 
-I'll be using ```INT GENERATED ALWAYS AS IDENTITY``` for ```id```, because ```SERIAL``` is considered a legacy
+I'll be using ```INT GENERATED ALWAYS AS IDENTITY``` for ```id```, because ```SERIAL``` is considered a legacy and ```IDENTITY``` is the modern, standard-compliant way to auto-generate unique numbers in **PostgreSQL** (Other **SQL** databases have their own ways to auto-generate **IDs**).
