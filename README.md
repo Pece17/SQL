@@ -293,8 +293,14 @@ postgres=# CREATE DATABASE movie_database;
 CREATE DATABASE
 ```
 
-Then I draft the **schema** for ```movie_ratings``` **table** in **Notepad++**:
+Then I draft the **schema** for ```movie_ratings``` **table** in **Notepad++**. ```CHECK (rating >= 0 AND rating <= 10)``` is added last minute to prevent invalid ratings, so you can't accidentally insert a rating below 0 or above 10
 
 ```
-
+CREATE TABLE movie_ratings (
+	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	title TEXT NOT NULL,
+	year INT,
+	rating NUMERIC(3,1) CHECK (rating >= 0 AND rating <= 10),
+	rated_at TIMESTAMP DEFAULT now()
+);
 ```
