@@ -71,7 +71,7 @@ CREATE DATABASE
 postgres=#
 ```
 
-Now we can connect to the newly created database using the ```\c``` command:
+Now we can connect to the newly created database using the ```\c``` **psql meta-command**:
 
 ```
 postgres=# \c testdb
@@ -116,7 +116,7 @@ CREATE TABLE
 testdb=#
 ```
 
-We can use ```\dt``` command to list all tables in the current database/schema.
+We can use ```\dt``` **psql meta-command** to list all tables in the current database/schema.
 
 ```
 testdb=# \dt
@@ -215,7 +215,7 @@ DROP TABLE
 testdb=#
 ```
 
-```DROP TABLE``` message informs us that the statement was executed successfully. We can also confirm this further with the ```\dt``` command:
+```DROP TABLE``` message informs us that the statement was executed successfully. We can also confirm this further with the ```\dt``` **psql meta-command**:
 
 ```
 testdb=# \dt
@@ -233,7 +233,7 @@ DROP DATABASE
 postgres=#
 ```
 
-```DROP DATABASE``` message informs us that the statement was executed successfully. We can also confirm this further with the ```\l``` command, which lists all databases:
+```DROP DATABASE``` message informs us that the statement was executed successfully. We can also confirm this further with the ```\l``` **psql meta-command**, which lists all databases:
 
 ```
 postgres=# \l
@@ -248,7 +248,7 @@ postgres=# \l
 (3 rows)
 ```
 
-```testdb``` does not exist anymore. Finally, we can close **SQL Shell (psql)** terminal with ```\q``` command:
+```testdb``` does not exist anymore. Finally, we can close **SQL Shell (psql)** terminal with ```\q``` **psql meta-command**:
 
 ```
 postgres=# \q
