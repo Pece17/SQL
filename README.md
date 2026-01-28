@@ -53,7 +53,7 @@ postgres=#
 
 Now I'm succesfully connected to **PostgreSQL 18.1**. The warning message just means that this terminal uses a different character set than my computer, which supports e.g. Finnish characters. This probably won't be an issue as long as I don't use special characters in the database.
 
-Now I can test if the database works correctly. The ```SELECT``` statement is used to select data from a database, so I enter the following command to check the database version:
+Now I can test if the database works correctly. The ```SELECT``` statement is used to select data from a database, so I enter the following **statement** to check the database version:
 
 ```
 postgres=# SELECT version();
