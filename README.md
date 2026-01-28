@@ -272,7 +272,7 @@ These are my initial ideas for the database:
 
 This is the **schema** (defines the **columns**, their **data types**, and constraints) for ```movie_ratings``` **table**:
 
-| Column** | Type | Description |
+| Column | Type | Description |
 |-|-|-|
 | ```id``` | ```INT GENERATED ALWAYS AS IDENTITY``` | Unique identifier, primary key |
 | ```title``` | ```TEXT``` | Movie title |
