@@ -204,3 +204,23 @@ testdb=# SELECT * FROM cars ORDER BY year DESC;
   1 | Lancia | Delta S4 | 1986 | 2026-01-27 17:59:52.763842
 (3 rows)
 ```
+
+We can now conclude that the **PostgreSQL** environment works correctly, so we can move onto bigger projects. Let's delete the ```cars``` table with ```DROP TABLE cars;``` statement:
+
+```
+postgres=# \c testdb
+You are now connected to database "testdb" as user "postgres".
+testdb=# DROP TABLE cars;
+DROP TABLE
+testdb=#
+```
+
+```DROP TABLE``` message informs us that the statement was executed successfully. We can also confirm this further with the ```\dt``` command:
+
+```
+testdb=# \dt
+Did not find any tables.
+testdb=#
+```
+
+Let's also delete the whole ```testdb``` database. 
