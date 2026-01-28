@@ -419,4 +419,4 @@ movie_database=# SELECT * FROM movie_ratings ORDER BY rating DESC;
 (5 rows)
 ```
 
-What is notable is that the ```id``` of ```The Tender Bar``` is ```7```, because I made **2** failed row insertions. In **PostgreSQL**, when you use ```INT GENERATED ALWAYS AS IDENTITY``` (or ```SERIAL```), the **ID counter** keeps increasing even if a row insertion fails. This behavior is completely standard.
+What is notable is that the ```id``` of ```The Tender Bar``` is ```7```, because I made **2** failed row insertions before it. In **PostgreSQL**, when you use ```INT GENERATED ALWAYS AS IDENTITY``` (or ```SERIAL```), the **ID counter** keeps increasing even if a row insertion fails. This behavior is completely standard.
