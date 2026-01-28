@@ -300,8 +300,8 @@ Then I draft the **schema** for ```movie_ratings``` **table** in **Notepad++**. 
 - ```(3,1)``` are precision and scale: ```3``` = total number of digits allowed including digits before and after the decimal point (**10.0** is the highest rating) and ```1``` = number of digits allowed after the decimal point (the fractional part).
 - ```CHECK ()``` is a constraint that validates data before insertion and enforces all rules inside its **parentheses**.
 - ```rating >= 0.5``` means the ```rating``` has to be **greater than or equal to** ```>=``` the minimun allowed value (**0.5**).
-- In ```AND rating <= 10```: ```AND``` = a **logical operator** in **SQL** that combines multiple conditions and ```rating <= 10``` means the ```rating``` has to be **less than or equal to** ```<=``` the maximum allowed value (**0.5**).
-- In ```AND (rating * 2) = FLOOR(rating * 2)```:
+- In ```AND rating <= 10```: ```AND``` = a **logical operator** in **SQL** that combines multiple conditions and ```rating <= 10``` means the ```rating``` has to be **less than or equal to** ```<=``` the maximum allowed value (**10**).
+- ```AND (rating * 2) = FLOOR(rating * 2)``` makes sure the ratings are in **0.5 increments**. ```(rating * 2)``` multiplies the rating by **2**, ```=``` or **equality operator** compares these **mathematical expressions**, and ```FLOOR(rating * 2)``` in ```FLOOR(x)``` rounds down to the nearest whole number. 
 
 ```
 CREATE TABLE movie_ratings (
