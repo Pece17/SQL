@@ -6,7 +6,7 @@ A project for learning the basics of **Structured Query Language**. My purpose i
 ## Table of Contents
 
 - [Software Installation and Setup](https://github.com/Pece17/SQL/blob/main/README.md#software-installation-and-setup)
-- [Creating a Movie Rating Database]()
+- [Creating a Movie Rating Database](https://github.com/Pece17/SQL/tree/main?tab=readme-ov-file#creating-a-movie-rating-database)
 
 
 ## Software Installation and Setup
