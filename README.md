@@ -223,4 +223,14 @@ Did not find any tables.
 testdb=#
 ```
 
-Let's also delete the whole ```testdb``` database. 
+Let's also delete the whole ```testdb``` database. First we need to connect back to the root ```postgres```, after which we use ```DROP DATABASE testdb;``` statement to delete the database and all its possible tables *permanently* (you cannot undo this):
+
+```
+testdb=# \c postgres
+You are now connected to database "postgres" as user "postgres".
+postgres=# DROP DATABASE testdb;
+DROP DATABASE
+postgres=#
+```
+
+```DROP DATABASE``` message informs us that the statement was executed successfully. We can also confirm this further with the ```\l``` command:
