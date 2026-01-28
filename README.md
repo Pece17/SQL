@@ -294,19 +294,25 @@ postgres=# CREATE DATABASE movie_database;
 CREATE DATABASE
 ```
 
-Then I draft the **schema** for ```movie_ratings``` **table** in **Notepad++**. ```CHECK (rating >= 0 AND rating <= 10)``` is added last minute to prevent invalid ratings, so you can't accidentally insert a rating below 0 or above 10. Explanation:
+Then I draft the **schema** for ```movie_ratings``` **table** in **Notepad++**. I add a ```CHECK``` **constraint** last minute to prevent invalid ratings, so that you can't accidentally insert a rating below **0** or above **10**, and only **0.5** increments are allowed. A more specific explanation:
 
 - ```NUMERIC``` (or ```DECIMAL```) is a precise numeric type, suitable for decimal numbers.
-- ```(3,1)``` are precision and scale: ```3``` = total number of digits allowed including digits before and after the decimal point (10.0 is the highest rating) and ```1``` = number of digits allowed after the decimal point (the fractional part).
-- ```CHECK``` is a constraint that validates data before insertion.
-- ```(rating >= 0 AND rating <= 10)```
+- ```(3,1)``` are precision and scale: ```3``` = total number of digits allowed including digits before and after the decimal point (**10.0** is the highest rating) and ```1``` = number of digits allowed after the decimal point (the fractional part).
+- ```CHECK ()``` is a constraint that validates data before insertion and enforces all rules inside its **parentheses**.
+- ```rating >= 0.5``` means the ```rating``` has to be **greater than or equal to** ```>=``` the minimun allowed value (**0.5**).
+- In ```AND rating <= 10```: ```AND``` = a **logical operator** in **SQL** that combines multiple conditions, ```rating <= 10``` = **less than or equal to** ```<=``` the maximum allowed value (**0.5**).
+- In ```AND (rating * 2) = FLOOR(rating * 2)```:
 
 ```
 CREATE TABLE movie_ratings (
 	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 	title TEXT NOT NULL,
 	year INT,
-	rating NUMERIC(3,1) CHECK (rating >= 0 AND rating <= 10),
+	rating NUMERIC(3,1) CHECK (
+		rating >= 0.5
+		AND rating <= 10
+		AND (rating * 2) = FLOOR(rating * 2)
+	),
 	rated_at TIMESTAMP DEFAULT now()
 );
 ```
