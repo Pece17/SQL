@@ -265,5 +265,18 @@ I'm an avid [IMDb](https://www.imdb.com/) user, and I usually rate every movie I
 
 These are my initial ideas for the database:
 
-- Create a **database** called **movie_database**. This name follows accepted **SQL** naming conventions (**lowercase**, **underscores**)
-- Within **movie_database**, create a **table** called **movie_ratings** with the following columns: **id**, **title**, **year**, **rating**, and **rated_at**.
+- Create a **database** called **movie_database**. This name follows accepted **SQL** naming conventions (**lowercase**, **underscores**).
+- Within **movie_database**, create a **table** called **movie_ratings** with the following columns: **id**, **title**, **year**, **rating**, and **rated_at**. I will specify these later on.
+- Perhaps the ability to import movie ratings from **CSV files** (**comma-separated values**), because writing them manually to **SQL statements** can be cumbersome.
+
+This is the **schema** (defines the **columns**, their **data types**, and constraints) for ```movie_ratings``` **table**:
+
+| Column | Type | Description |
+|-|-|-|
+| id | INT GENERATED ALWAYS AS IDENTITY | Unique identifier, primary key |
+| title | TEXT | Movie title |
+| year | INT | Release year |
+| rating | NUMERIC(3,1) | Movie rating (allows decimals, e.g., 7.5) |
+| rated_at | TIMESTAMP | Automatic timestamp when the row is added |
+
+I'll be using **INT GENERATED ALWAYS AS IDENTITY** of **id**, because **SERIAL** is considered a legacy
