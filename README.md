@@ -316,3 +316,72 @@ CREATE TABLE movie_ratings (
 	rated_at TIMESTAMP DEFAULT now()
 );
 ```
+
+Now I'm ready to test this out in practice:
+
+```
+You are now connected to database "movie_database" as user "postgres".
+movie_database=# CREATE TABLE movie_ratings (
+movie_database(# id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+movie_database(# title TEXT NOT NULL,
+movie_database(# year INT,
+movie_database(# rating NUMERIC(3,1) CHECK (
+movie_database(# rating >= 0.5
+movie_database(# AND rating <= 10
+movie_database(# AND (rating * 2) = FLOOR(rating * 2)
+movie_database(# ),
+movie_database(# rated_at TIMESTAMP DEFAULT now()
+movie_database(# );
+CREATE TABLE
+movie_database=#
+```
+
+Success! Now I can insert a few movies I've lately watched and rated, though first I draft the statement in **Notepad++**:
+
+```
+INSERT INTO movie_ratings (title, year, rating) VALUES
+('The Last Samurai', 2003, 9.5),
+('Heat', 1995, 9),
+('Good Will Hunting', 1997, 8.5),
+('Ad Astra', 2019, 8);
+```
+
+Let's test the statement:
+
+```
+movie_database=# INSERT INTO movie_ratings (title, year, rating) VALUES
+movie_database-# ('The Last Samurai', 2003, 9.5),
+movie_database-# ('Heat', 1995, 9),
+movie_database-# ('Good Will Hunting', 1997, 8.5),
+movie_database-# ('Ad Astra', 2019, 8);
+INSERT 0 4
+movie_database=#
+```
+
+No errors, so let's see how it looks:
+
+```
+movie_database=# SELECT * FROM movie_ratings;
+                           movie_database
+ id |       title       | year | rating |          rated_at
+----+-------------------+------+--------+----------------------------
+  1 | The Last Samurai  | 2003 |    9.5 | 2026-01-28 21:35:27.981159
+  2 | Heat              | 1995 |    9.0 | 2026-01-28 21:35:27.981159
+  3 | Good Will Hunting | 1997 |    8.5 | 2026-01-28 21:35:27.981159
+  4 | Ad Astra          | 2019 |    8.0 | 2026-01-28 21:35:27.981159
+(4 rows)
+```
+
+Perfect, I even coincidentally inserted the ratings in descending order, even though there's a statement for it:
+
+```
+movie_database=# SELECT * FROM movie_ratings ORDER BY rating DESC;
+                           movie_database
+ id |       title       | year | rating |          rated_at
+----+-------------------+------+--------+----------------------------
+  1 | The Last Samurai  | 2003 |    9.5 | 2026-01-28 21:35:27.981159
+  2 | Heat              | 1995 |    9.0 | 2026-01-28 21:35:27.981159
+  3 | Good Will Hunting | 1997 |    8.5 | 2026-01-28 21:35:27.981159
+  4 | Ad Astra          | 2019 |    8.0 | 2026-01-28 21:35:27.981159
+(4 rows)
+```
