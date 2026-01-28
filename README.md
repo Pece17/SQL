@@ -265,5 +265,5 @@ I'm an avid [IMDb](https://www.imdb.com/) user, and I usually rate every movie I
 
 These are my initial ideas for the database:
 
-- Create a **database** called **movie_database**. This name follows accepted SQL naming conventions (**lowercase**, **underscores**)
+- Create a **database** called **movie_database**. This name follows accepted **SQL** naming conventions (**lowercase**, **underscores**)
 - Within **movie_database**, create a **table** called **movie_ratings** with the following columns: **id**, **title**, **year**, **rating**, and **rated_at**.
