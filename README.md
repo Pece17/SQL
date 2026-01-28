@@ -233,4 +233,26 @@ DROP DATABASE
 postgres=#
 ```
 
-```DROP DATABASE``` message informs us that the statement was executed successfully. We can also confirm this further with the ```\l``` command:
+```DROP DATABASE``` message informs us that the statement was executed successfully. We can also confirm this further with the ```\l``` command, which lists all databases:
+
+```
+postgres=# \l
+                                                List of databases
+   Name    |  Owner   | Encoding | Locale Provider | Collate | Ctype | Locale | ICU Rules |   Access privileges
+-----------+----------+----------+-----------------+---------+-------+--------+-----------+-----------------------
+ postgres  | postgres | UTF8     | libc            | fi-FI   | fi-FI |        |           |
+ template0 | postgres | UTF8     | libc            | fi-FI   | fi-FI |        |           | =c/postgres          +
+           |          |          |                 |         |       |        |           | postgres=CTc/postgres
+ template1 | postgres | UTF8     | libc            | fi-FI   | fi-FI |        |           | =c/postgres          +
+           |          |          |                 |         |       |        |           | postgres=CTc/postgres
+(3 rows)
+```
+
+```testdb``` does not exist anymore. Finally, we can close **SQL Shell (psql)** terminal with ```\q``` command:
+
+```
+postgres=# \q
+Press any key to continue . . .
+```
+
+This concludes the installation, setup, and testing.
