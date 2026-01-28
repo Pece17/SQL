@@ -129,7 +129,7 @@ testdb=# \dt
 
 Everything looks in order, so now we can **insert** some cars into the ```cars``` table:
 
-- ```INSERT``` tells the database that data will be inserted into a table, ```INTO``` specifies which table (```cars``` in this case) you want to insert the row(s) into, ```(brand, model, year)``` tells **PostgreSQL** which columns you are providing data for in the new row, and ```VALUES``` introduces the actual data you want to insert.
+- ```INSERT``` tells the database that data will be inserted into a table, ```INTO``` specifies which table (```cars``` in this case) you want to insert the row(s) into, ```(brand, model, year)``` tells **SQL** which columns you are providing data for in the new row, and ```VALUES``` introduces the actual data you want to insert.
 - **Single quotes** ```''``` are used for the values of ```brand``` and ```model``` because they are **text**/**strings**, and no quotes are used for ```year``` because they are **numbers** (**integer**, **serial**, **float**, etc.).
 
 ```
