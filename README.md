@@ -87,8 +87,8 @@ Let's create our first **table** in the ```testdb``` **database** with the ```CR
 - ```model``` is the **column** name for the model of the car (**V70**, **Celica**, etc.), and ```TEXT``` and ```NOT NULL``` work similarly as in the previous **row**.
 - ```year``` is the **column** name for the manufacturing year of the car and ```INT``` is the data type for **integers** (whole numbers).
 - ```created_at``` is the **column** name for when the row was created, ```TIMESTAMP``` is the data type for date and time, ```DEFAULT``` means default value to use if no value is provided during insertion, and ```now()``` is a **function** that returns the current date and time.
-- Each **column** definition (not **row**) is separated by a **comma** (**,**).
-- The **column** definitions are indented inside the **parentheses** **()**.
+- Each **column** definition (not **row**) is separated by a **comma** ```,```.
+- The **column** definitions are indented inside the **parentheses** ```()```.
 
 I use **Notepad++** to create the **statement** because it's easier than trying to write straight to **SQL Shell (psql)**. 
 
