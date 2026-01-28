@@ -271,7 +271,7 @@ These are my initial ideas for the database:
 
 This is the **schema** (defines the **columns**, their **data types**, and constraints) for ```movie_ratings``` **table**:
 
-| **Column** | **Type** | **Description** |
+| Column** | Type | Description |
 |-|-|-|
 | ```id``` | ```INT GENERATED ALWAYS AS IDENTITY``` | Unique identifier, primary key |
 | ```title``` | ```TEXT``` | Movie title |
@@ -285,3 +285,16 @@ I'll be using ```INT GENERATED ALWAYS AS IDENTITY``` for ```id```, because ```SE
 - ```GENERATED``` indicates that **PostgreSQL** will generate values automatically for this column
 - ```ALWAYS``` specifies that you cannot manually provide a value for this column
 - ```AS IDENTITY``` tells **PostgreSQL** to use the standard-compliant way to generate sequential numbers for the column
+
+I start the execution of this project by logging into my root user in **SQL Shell (psql)** and by creating the ```movie_database```:
+
+```
+postgres=# CREATE DATABASE movie_database;
+CREATE DATABASE
+```
+
+Then I draft the **schema** for ```movie_ratings``` **table** in **Notepad++**:
+
+```
+
+```
