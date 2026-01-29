@@ -420,3 +420,36 @@ movie_database=# SELECT * FROM movie_ratings ORDER BY rating DESC;
 ```
 
 What is notable is that the ```id``` of ```The Tender Bar``` is ```7```, because I made **2** failed row insertions before it. In **PostgreSQL**, when you use ```INT GENERATED ALWAYS AS IDENTITY``` (or ```SERIAL```), the **ID counter** keeps increasing even if a row insertion fails. This behavior is completely standard.
+
+I inserted more movies, but ```F1® The Movie``` title didn't format right, so I want to fix that, and I also want to change the rating:
+
+```
+movie_database=# INSERT INTO movie_ratings (title, year, rating) VALUES
+movie_database-# ('A Bronx Tale', 1993, 8.5),
+movie_database-# ('F1® The Movie', 2025, 8),
+movie_database-# ('Train Dreams', 2025, 9),
+movie_database-# ('Her', 2013, 8.5);
+INSERT 0 4
+movie_database=# SELECT * FROM movie_ratings ORDER BY rating DESC;
+ id |       title       | year | rating |          rated_at
+----+-------------------+------+--------+----------------------------
+  1 | The Last Samurai  | 2003 |    9.5 | 2026-01-28 21:35:27.981159
+ 10 | Train Dreams      | 2025 |    9.0 | 2026-01-29 14:36:13.751471
+  2 | Heat              | 1995 |    9.0 | 2026-01-28 21:35:27.981159
+ 11 | Her               | 2013 |    8.5 | 2026-01-29 14:36:13.751471
+  3 | Good Will Hunting | 1997 |    8.5 | 2026-01-28 21:35:27.981159
+  8 | A Bronx Tale      | 1993 |    8.5 | 2026-01-29 14:36:13.751471
+  9 | F1r The Movie     | 2025 |    8.0 | 2026-01-29 14:36:13.751471
+  4 | Ad Astra          | 2019 |    8.0 | 2026-01-28 21:35:27.981159
+  7 | The Tender Bar    | 2021 |    7.0 | 2026-01-28 21:48:40.23575
+(9 rows)
+```
+
+I draft a statement for modifications in **Notepad++**: ```UPDATE``` is a **data modification statement** that tells **PostgreSQL** to change existing **rows**, ```SET``` defines which **columns** will be changed (everything after ```SET``` is a list of **column = new_value** assignments), and ```WHERE id = 9;``` restricts the update to only rows matching this condition ```id = 9```. There is no **comma** after ```rating = 7.5``` because ```SET``` uses **commas** to separate **assignments**, not **values**.
+
+```
+UPDATE movie_ratings
+SET title = 'F1 The Movie',
+	rating = 7.5
+WHERE id = 9;
+```
