@@ -268,7 +268,7 @@ These are my initial ideas for the database:
 - [x] Create a **database** called ```movie_database```. This name follows accepted **SQL** naming conventions (**lowercase**, **underscores**).
 - [x] Within ```movie_database```, create a **table** called ```movie_ratings``` with the following columns: ```id```, ```title```, ```year```, ```rating```, and ```rated_at```.
 - [ ] Perhaps the ability to import movie ratings from **CSV files** (**comma-separated values**), because writing them manually to **SQL statements** can be cumbersome.
-- [x] Ratings are allowed between **0.5/10** and **10/10** with **0.5** increments, meaning e.g. **7.7/10** is invalid.
+- [x] Ratings are allowed between **0.5/10** and **10/10** with **0.5** increments, meaning e.g. **7.7/10** is invalid but **7.5/10** is valid.
 
 This is the **schema** (defines the **columns**, their **data types**, and constraints) for ```movie_ratings``` **table**:
 
