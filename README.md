@@ -445,7 +445,7 @@ movie_database=# SELECT * FROM movie_ratings ORDER BY rating DESC;
 (9 rows)
 ```
 
-I draft a **statement** for modifications in **Notepad++**: ```UPDATE``` is a **data modification statement** that tells **PostgreSQL** to change existing **rows**, ```SET``` defines which **columns** will be changed (everything after ```SET``` is a list of **column = new_value** assignments), and ```WHERE id = 9;``` restricts the update to only rows matching this condition (in this case ```id = 9```). There is no **comma** after ```rating = 7.5``` because ```SET``` uses **commas** to separate **assignments**, not **values**.
+I draft a **statement** for modifications in **Notepad++**: ```UPDATE``` is a **data modification statement** that tells **PostgreSQL** to change existing **rows**, ```SET``` defines which **columns** will be changed (everything after ```SET``` is a list of **column = new_value** assignments), and ```WHERE id = 9;``` restricts the update only to rows matching this condition (in this case ```id = 9```). There is no **comma** after ```rating = 7.5``` because ```SET``` uses **commas** to separate **assignments**, not **values**.
 
 ```
 UPDATE movie_ratings
