@@ -445,11 +445,26 @@ movie_database=# SELECT * FROM movie_ratings ORDER BY rating DESC;
 (9 rows)
 ```
 
-I draft a statement for modifications in **Notepad++**: ```UPDATE``` is a **data modification statement** that tells **PostgreSQL** to change existing **rows**, ```SET``` defines which **columns** will be changed (everything after ```SET``` is a list of **column = new_value** assignments), and ```WHERE id = 9;``` restricts the update to only rows matching this condition ```id = 9```. There is no **comma** after ```rating = 7.5``` because ```SET``` uses **commas** to separate **assignments**, not **values**.
+I draft a **statement** for modifications in **Notepad++**: ```UPDATE``` is a **data modification statement** that tells **PostgreSQL** to change existing **rows**, ```SET``` defines which **columns** will be changed (everything after ```SET``` is a list of **column = new_value** assignments), and ```WHERE id = 9;``` restricts the update to only rows matching this condition (in this case ```id = 9```). There is no **comma** after ```rating = 7.5``` because ```SET``` uses **commas** to separate **assignments**, not **values**.
 
 ```
 UPDATE movie_ratings
 SET title = 'F1 The Movie',
 	rating = 7.5
 WHERE id = 9;
+```
+
+Let's run the **statement** and check how the **updated row** looks. ```UPDATE 1``` indicates that **1 row** was affected, as intended. Looks good:
+
+```
+movie_database=# UPDATE movie_ratings
+movie_database-# SET title = 'F1 The Movie',
+movie_database-# rating = 7.5
+movie_database-# WHERE id = 9;
+UPDATE 1
+movie_database=# SELECT * FROM movie_ratings WHERE id = 9;
+ id |    title     | year | rating |          rated_at
+----+--------------+------+--------+----------------------------
+  9 | F1 The Movie | 2025 |    7.5 | 2026-01-29 14:36:13.751471
+(1 row)
 ```
