@@ -489,6 +489,8 @@ The following **statement** will get the job done. ```DELETE``` is a **data modi
 DELETE FROM movie_ratings WHERE id = 12;
 ```
 
+I run the **statement**, get ```DELETE 1``` message which notifies us that **1 row was removed**, and confirm that ```id = 12``` doesn't **return a row** anymore:
+
 ```
 movie_database=# DELETE FROM movie_ratings WHERE id = 12;
 DELETE 1
