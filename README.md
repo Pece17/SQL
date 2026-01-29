@@ -280,7 +280,7 @@ This is the **schema** (defines the **columns**, their **data types**, and const
 | ```rating``` | ```NUMERIC(3,1) CHECK (rating >= 0.5 AND rating <= 10 AND (rating * 2) = FLOOR(rating * 2))``` | Movie rating (allows decimals, e.g., 7.5 with 0.5 increments) |
 | ```rated_at``` | ```TIMESTAMP DEFAULT now()``` | Automatic timestamp when the row is added |
 
-I'll be using ```INT GENERATED ALWAYS AS IDENTITY``` for ```id```, because ```SERIAL``` is considered a legacy and ```IDENTITY``` is the modern, standard-compliant way to auto-generate unique numbers in **PostgreSQL** (Other **SQL** databases have their own ways to auto-generate **IDs**):
+I'll be using ```INT GENERATED ALWAYS AS IDENTITY``` for ```id```, because ```SERIAL``` is considered a legacy type and ```IDENTITY``` is the modern, standard-compliant way to auto-generate unique numbers in **PostgreSQL** (Other **SQL** databases have their own ways to auto-generate **IDs**):
 
 - ```INT``` = **integer** or a **whole number**
 - ```GENERATED``` indicates that **PostgreSQL** will generate values automatically for this column
