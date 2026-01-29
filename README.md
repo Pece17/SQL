@@ -274,11 +274,11 @@ This is the **schema** (defines the **columns**, their **data types**, and const
 
 | Column | Type | Description |
 |-|-|-|
-| ```id``` | ```INT GENERATED ALWAYS AS IDENTITY``` | Unique identifier, primary key |
-| ```title``` | ```TEXT``` | Movie title |
+| ```id``` | ```INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY``` | Unique identifier, primary key |
+| ```title``` | ```TEXT NOT NULL``` | Movie title |
 | ```year``` | ```INT``` | Release year |
-| ```rating``` | ```NUMERIC(3,1)``` | Movie rating (allows decimals, e.g., 7.5) |
-| ```rated_at``` | ```TIMESTAMP``` | Automatic timestamp when the row is added |
+| ```rating``` | ```NUMERIC(3,1) CHECK (rating >= 0.5 AND rating <= 10 AND (rating * 2) = FLOOR(rating * 2))``` | Movie rating (allows decimals, e.g., 7.5) |
+| ```rated_at``` | ```TIMESTAMP DEFAULT now()``` | Automatic timestamp when the row is added |
 
 I'll be using ```INT GENERATED ALWAYS AS IDENTITY``` for ```id```, because ```SERIAL``` is considered a legacy and ```IDENTITY``` is the modern, standard-compliant way to auto-generate unique numbers in **PostgreSQL** (Other **SQL** databases have their own ways to auto-generate **IDs**):
 
@@ -467,4 +467,24 @@ movie_database=# SELECT * FROM movie_ratings WHERE id = 9;
 ----+--------------+------+--------+----------------------------
   9 | F1 The Movie | 2025 |    7.5 | 2026-01-29 14:36:13.751471
 (1 row)
+```
+
+I added a movie to the database that I haven't actually seen yet, and now I want to delete the row:
+
+```
+movie_database=# INSERT INTO movie_ratings (title, year, rating) VALUES
+movie_database-# ('Casino', 1995, 8);
+INSERT 0 1
+movie_database=# SELECT * FROM movie_ratings WHERE year = 1995 ORDER BY rating DESC;
+ id | title  | year | rating |          rated_at
+----+--------+------+--------+----------------------------
+  2 | Heat   | 1995 |    9.0 | 2026-01-28 21:35:27.981159
+ 12 | Casino | 1995 |    8.0 | 2026-01-29 16:52:05.791942
+(2 rows)
+```
+
+The following **statement** will get the job done: ```DELETE``` is a **data modification statement** that **removes** one or more **rows** from a **table**, 
+
+```
+DELETE FROM movie_ratings WHERE id = 12;
 ```
