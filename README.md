@@ -483,8 +483,17 @@ movie_database=# SELECT * FROM movie_ratings WHERE year = 1995 ORDER BY rating D
 (2 rows)
 ```
 
-The following **statement** will get the job done: ```DELETE``` is a **data modification statement** that **removes** one or more **rows** from a **table**, 
+The following **statement** will get the job done. ```DELETE``` is a **data modification statement** that **removes** one or more **rows** from a **table**. We could alternatively use ```WHERE title = Casino```, but using ```id``` is safer if multiple movies share the same name. It is important to note that without a ```WHERE``` clause, *all rows would be deleted*!
 
 ```
 DELETE FROM movie_ratings WHERE id = 12;
+```
+
+```
+movie_database=# DELETE FROM movie_ratings WHERE id = 12;
+DELETE 1
+movie_database=# SELECT * FROM movie_ratings WHERE id = 12;
+ id | title | year | rating | rated_at
+----+-------+------+--------+----------
+(0 rows)
 ```
